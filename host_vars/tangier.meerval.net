@@ -26,13 +26,11 @@ bgp:
       local_ip: 165.254.255.2
       import_filter: all
       export_filter: all
-      direct: yes
     tardis1:
       neighbor_ip: 192.147.168.242
       local_ip: 192.147.168.241
       remote_as: 15562
       rr_client: yes
-      direct: yes
       import_filter: tardis_in
       export_filter: all
     ircd1:
@@ -66,20 +64,17 @@ bgp:
       remote_as: 15562
       import_filter: all
       export_filter: all
-      direct: yes
     tardis1:
       neighbor_ip: 2001:728:1808:1::26
       local_ip: 2001:728:1808:1::25
       remote_as: 15562
       rr_client: yes
-      direct: yes
       import_filter: tardis_in
       export_filter: all
     ircd1:
       neighbor_ip: 2001:728:1808::32
       local_ip: 2001:728:1808::2
       remote_as: 15562
-      direct: yes
       import_filter: ircd_in
     ntt2:
       neighbor_ip: 2001:728:0:5000::a91
