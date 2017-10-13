@@ -42,6 +42,12 @@ protocol bgp {{ neighbor }} {
 {% if p.preference is defined %}
     preference {{ p.preference }};
 {% endif %}
+{% if p.direct is defined and p.direct and p.direct %}
+    direct;
+{% endif %}
+{% if p.rr_client is defined and p.rr_client %}
+    rr client;
+{% endif %}
 }
 
 {% endfor %}

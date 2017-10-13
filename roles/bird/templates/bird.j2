@@ -6,6 +6,8 @@ router id {{ router_id }};
 
 {% include "interfaces.j2" %}
 
+{% include "statics.j2" %}
+
 protocol static blackhole1 {
     include "blackholes/*.ipv{{ afi }}.conf";
 }

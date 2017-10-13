@@ -1,1 +1,102 @@
-router_id: '165.254.255.2'
+router_id: 165.254.255.2
+loopback:
+  4: '165.254.255.2'
+  6: '2001:728:1808::2'
+interfaces:
+  - virbr0
+  - eth1
+  - lo
+  - tardis4
+statics:
+  '192.147.168.0/24':
+    via: 165.254.255.16
+  '2001:67c:208c::/48':
+    via: 2001:728:1808::8
+  '209.24.0.0/16':
+    via: blackhole
+  '2001:728:1808::/48':
+    via: blackhole
+bgp:
+  defaults:
+    local_as: 15562
+  ipv4:
+    ibgp1:
+      neighbor_ip: 165.254.255.1
+      remote_as: 15562
+      local_ip: 165.254.255.2
+      import_filter: all
+      export_filter: all
+      direct: yes
+    tardis1:
+      neighbor_ip: 192.147.168.242
+      local_ip: 192.147.168.241
+      remote_as: 15562
+      rr_client: yes
+      direct: yes
+      import_filter: tardis_in
+      export_filter: all
+    ircd1:
+      neighbor_ip: 165.254.255.32
+      local_ip: 165.254.255.2
+      remote_as: 15562
+      import_filter: ircd_in
+    ntt1:
+      neighbor_ip: 83.231.213.229
+      local_ip: 83.231.213.230
+      remote_as: 2914
+      allow_as_in: 2
+      import_filter: ntt_in
+      export_filter: ntt_out
+    froztbyte1:
+      neighbor_ip: 176.9.100.227
+      remote_as: 4294906872
+      local_ip: 165.254.255.2
+      multihop: yes
+      export_filter: all
+    kiera1:
+      neighbor_ip: 165.254.255.26
+      local_ip : 165.254.255.2
+      remote_as: 15562
+      export_filter: all
+      rr_client: yes
+  ipv6:
+    ibgp1:
+      neighbor_ip: 2001:728:1808::1
+      local_ip: 2001:728:1808::2
+      remote_as: 15562
+      import_filter: all
+      export_filter: all
+      direct: yes
+    tardis1:
+      neighbor_ip: 2001:728:1808:1::26
+      local_ip: 2001:728:1808:1::25
+      remote_as: 15562
+      rr_client: yes
+      direct: yes
+      import_filter: tardis_in
+      export_filter: all
+    ircd1:
+      neighbor_ip: 2001:728:1808::32
+      local_ip: 2001:728:1808::2
+      remote_as: 15562
+      direct: yes
+      import_filter: ircd_in
+    ntt2:
+      neighbor_ip: 2001:728:0:5000::a91
+      local_ip: 2001:728:0:5000::a92
+      remote_as: 2914
+      allow_as_in: 1
+      import_filter: ntt_in
+      export_filter: ntt_out
+    king1:
+      neighbor_ip: 2001:728:1808:1::1e
+      local_ip: 2001:728:1808:1::1d
+      remote_as: 31451
+      import_filter: AS31451_import
+      export_filter: all
+    kiera1:
+      neighbor_ip: 2001:728:1808::26
+      local_ip: 2001:728:1808::2
+      remote_as: 15562
+      export_filter: all
+      rr_client: yes

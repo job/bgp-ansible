@@ -1,0 +1,16 @@
+{% if statics is defined %}
+protocol static1 {
+{% for static in statics.keys() %}
+{% if afi == 4 and '::' in static %}
+{% break %}
+{% elif afi == 6 and '::' not in static %}
+{% break %}
+{% endif %}
+{% if statics[static]['via'] == 'blackhole' %}
+    route {{ static }} blackhole;
+{% else %}
+    route {{ static }} via {{ statics[static]['via'] }};
+{% endif %}
+{% endfor %}
+}
+{% endif %}
