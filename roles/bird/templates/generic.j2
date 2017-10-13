@@ -52,3 +52,13 @@ function scrub_communities(int context)
     }
 }
 
+filter ntt_in
+{
+    scrub_communities(untrusted);
+{% if afi == 4 %}
+{# make sure we don't accept this prefix from the scrubber #}
+    if net = 165.254.255.132/32 then reject;
+{% endif %}
+    bgp_med = 0;
+    accept;
+}
