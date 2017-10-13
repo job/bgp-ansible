@@ -1,11 +1,3 @@
-- name: delete old files
-  file:
-    name={{ item }}
-    state=absent 
-  with_items:
-    - /etc/bird/generic.conf
-    - /etc/bird/defines.conf
-
 - name: make blackhole drop dir
   file:
     name=/etc/bird/blackholes
