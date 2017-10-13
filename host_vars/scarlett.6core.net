@@ -1,0 +1,86 @@
+router_id: 165.254.255.1
+loopback:
+  4: '165.254.255.1'
+  6: '2001:728:1808::1'
+interfaces:
+  - lo
+  - virbr0
+  - tardis4
+  - tardis6
+  - eth0.100
+statics:
+  '165.254.255.16':
+    via: blackhole
+  '192.147.168.255/32':
+    via: 165.254.255.2
+  '165.254.255.132/32':
+    via: 165.254.255.32
+  '2001:728:1808::/48':
+    via: blackhole
+  '2001:67c:208c::/48':
+    via: blackhole
+  '2001:67c:208c::1/128':
+    via: 2001:728:1808::2
+  '2607:fae0:245::/48'
+    via: blackhole
+bgp:
+  defaults:
+    local_as: 15562
+  ipv4:
+    ibgp1:
+      neighbor_ip: 165.254.255.2
+      remote_as: 15562
+      local_ip: 165.254.255.1
+      import_filter: all
+      export_filter: all
+    tardis1:
+      neighbor_ip: 192.147.168.246
+      local_ip: 192.147.168.245
+      remote_as: 15562
+      rr_client: yes
+      import_filter: tardis_in
+      export_filter: all
+    ircd1:
+      neighbor_ip: 165.254.255.32
+      local_ip: 165.254.255.1
+      remote_as: 15562
+      import_filter: ircd_in
+      export_filter: ircd_out
+    atr1:
+      neighbor_ip: 165.254.255.23
+      local_ip: 165.254.255.1
+      remote_as: 15562
+      import_filter: atr_in
+    ntt1:
+      neighbor_ip: 83.231.213.225
+      local_ip: 83.231.213.226
+      remote_as: 2914
+      allow_as_in: 2
+      import_filter: import_ntt
+      export_filter: ntt_out
+  ipv6:
+    ibgp1:
+      neighbor_ip: 2001:728:1808::2
+      local_ip: 2001:728:1808::1
+      remote_as: 15562
+      import_filter: import_ntt
+      export_filter: all
+    tardis1:
+      neighbor_ip: 2001:728:1808:1::2a
+      local_ip: 2001:728:1808:1::29
+      remote_as: 15562
+      rr_client: yes
+      import_filter: tardis_in
+      export_filter: all
+    ircd1:
+      neighbor_ip: 2001:728:1808::32
+      local_ip: 2001:728:1808::1
+      remote_as: 15562
+      import_filter: ircd_in
+    ntt1:
+      neighbor_ip: 2001:0728:0:5000::209 
+      local_ip: 2001:0728:0:5000::20a
+      remote_as: 2914
+      allow_as_in: 1
+      import_filter: import_ntt
+      export_filter: ntt_out
