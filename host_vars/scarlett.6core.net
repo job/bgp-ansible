@@ -28,6 +28,8 @@ statics:
 bgp:
   defaults:
     local_as: 15562
+  tables:
+    - collector
   ipv4:
     ibgp1:
       neighbor_ip: 165.254.255.2
@@ -60,6 +62,46 @@ bgp:
       allow_as_in: 2
       import_filter: import_ntt
       export_filter: ntt_out
+    kiera1:
+      table: collector
+      remote_as: 15562
+      neighbor_ip: 165.254.255.26
+      local_ip: 165.254.255.1
+      export_filter: all
+      rr_client: yes
+      add_path_tx: yes
+    ntteu1:
+      neighbor_ip: 129.250.0.153
+      remote_as: 2914
+      local_ip: 165.254.255.1
+      multihop: yes
+      import_filter: all
+      table: collector
+      preference: 1
+    nttus1:
+      neighbor_ip: 129.250.000.223
+      remote_as: 2914
+      local_ip: 165.254.255.1
+      multihop: yes
+      import_filter: all
+      table: collector
+      preference: 1
+    nttsa1:
+      neighbor_ip: 129.250.000.224
+      remote_as: 2914
+      local_ip: 165.254.255.1
+      multihop: yes
+      import_filter: all
+      table: collector
+      preference: 1
+    nttasia1:
+      neighbor_ip: 129.250.000.225
+      remote_as: 2914
+      local_ip: 165.254.255.1
+      multihop: yes
+      import_filter: all
+      table: collector
+      preference: 1
   ipv6:
     ibgp1:
       neighbor_ip: 2001:728:1808::2
@@ -86,3 +128,43 @@ bgp:
       allow_as_in: 1
       import_filter: import_ntt
       export_filter: ntt_out
+    ntteu1:
+      neighbor_ip: 2001:728:0:1000::2
+      remote_as: 2914
+      local_ip: 2001:728:1808::1
+      import_filter: all
+      preference: 1
+      multihop: yes
+      table: collector
+    nttus1:
+      neighbor_ip: 2001:218:0:1000::f01a
+      remote_as: 2914
+      local_ip: 2001:728:1808::1
+      import_filter: all
+      preference: 1
+      multihop: yes
+      table: collector
+    nttsa1:
+      neighbor_ip: 2001:218:0:1000::f01b
+      remote_as: 2914
+      local_ip: 2001:728:1808::1
+      import_filter: all
+      preference: 1
+      multihop: yes
+      table: collector
+    nttasia1:
+      neighbor_ip: 2001:218:0:1000::f01c
+      remote_as: 2914
+      local_ip: 2001:728:1808::1
+      import_filter: all
+      preference: 1
+      multihop: yes
+      table: collector
+    kiera1:
+      neighbor_ip: 2001:728:1808::26
+      remote_as: 15562
+      local_ip: 2001:728:1808::1
+      export_filter: all
+      table: collector
+      add_path_tx: yes
+      rr_client: yes

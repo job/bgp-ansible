@@ -51,6 +51,12 @@ protocol bgp {{ neighbor }} {
 {% if p.multihop is defined and p.multihop %}
     multihop;
 {% endif %}
+{% if p.table is defined %}
+    table {{ p.table }};
+{% endif %}
+{% if p.add_path_tx is defined and p.add_path_tx %}
+    add paths tx;
+{% endif %}
 }
 
 {% endfor %}
