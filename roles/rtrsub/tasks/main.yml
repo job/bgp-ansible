@@ -1,0 +1,43 @@
+- name: uninstall non-virtualenv rtrsub copy
+  pip:
+    name=rtrsub
+    state=absent
+
+- name: upload rpki-data.j2
+  copy:
+    src=rpki-data.j2
+    dest=/etc/bird/rpki-data.j2
+    owner=root
+
+- name: "Ensure rtrsub is installed"
+  pip:
+    name="rtrsub"
+    state=latest
+    virtualenv="/usr/local/rtrsub"
+    virtualenv_python=python2.7
+
+- file:
+    src=/usr/local/rtrsub/bin/rtrsub
+    dest=/usr/local/bin/rtrsub
+    state=link
+    owner=root
+    group=root
+
+- cron:
+    name=rtrsub_ipv4
+    hour=04
+    minute={{ 59 |random(seed=inventory_hostname) }}
+    state=present
+    job="rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf"
+ 
+- cron:
+    name=rtrsub_ipv6
+    hour=04
+    minute={{ 59 |random(seed=inventory_hostname) }}
+    state=present
+    job="rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf"
+
+- command: "{{ item }}"
+  with_items:
+    - "rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf"
+    - "rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf"

@@ -29,6 +29,8 @@ protocol device {
 
 {% include "filters-ipv" ~ afi ~ ".j2" %}
 
+include "rpki-data.ipv{{ afi }}.conf";
+
 {% if afi == 4 %}
 {% include inventory_hostname + "/etc/bird/bird.conf" %}
 {% elif afi == 6 %}
