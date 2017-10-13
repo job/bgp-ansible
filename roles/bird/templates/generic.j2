@@ -1,0 +1,54 @@
+function reject_bogon_asns()
+int set bogon_asns;
+{
+    bogon_asns = [ 	0,                      # RFC 7607
+        23456,                  # RFC 4893 AS_TRANS
+        64496..64511,           # RFC 5398 and documentation/example ASNs
+        64512..65534,           # RFC 6996 Private ASNs
+        65535,                  # RFC 6996 Last 16 bit ASN
+        65536..65551,           # RFC 5398 and documentation/example ASNs
+        65552..131071,          # RFC IANA reserved ASNs
+        4200000000..4294967294, # RFC 6996 Private ASNs
+        4294967295 ];           # RFC 6996 Last 32 bit ASN
+        if ( bgp_path ~ bogon_asns ) then {
+            print "reject_bogon_asns()  bogon asn in path: ", net, " path: ", bgp_path;
+            reject;
+        }
+    return true;
+}
+
+function is_downstream(int context)
+{
+    case (context) {
+        # if originates with my own servers
+        0: if (bgp_path.last = 15562 &&
+               (15562, 0, 1) ~ bgp_large_community) then {
+                return true;
+            }
+        # if originates with downstream ASNs
+        1: if ((15562, 0, 1) ~ bgp_large_community) then {
+                return true;
+            }
+        else: return false;
+    }
+}
+
+function scrub_communities(int context)
+{
+    # 0 = trusted
+    # 1 = downstream
+    # rest = untrusted
+    case (context) {
+        0: 
+            bgp_large_community.delete([(15562, *, *)]);
+            bgp_community.delete([(15562, *)]);
+        1:
+            bgp_large_community.delete([(15562, *, *)]);
+            bgp_community.delete([(15562, *)]);
+        else:
+            bgp_community.delete([(65535, 666)]);
+            bgp_large_community.delete([(15562, *, *)]);
+            bgp_community.delete([(15562, *)]);
+    }
+}
+

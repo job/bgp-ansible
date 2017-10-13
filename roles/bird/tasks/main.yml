@@ -1,0 +1,41 @@
+- name: delete old files
+  file:
+    name={{ item }}
+    state=absent 
+  with_items:
+    - /etc/bird/generic.conf
+    - /etc/bird/defines.conf
+
+- name: upload rpki-data.j2
+  copy:
+    src=common/etc/bird/rpki-data.j2
+    dest=/etc/bird/rpki-data.j2
+    owner=root
+
+- name: make blackhole drop dir
+  file:
+    name=/etc/bird/blackholes
+    state=directory
+    owner=root
+
+- name: make filter drop dir
+  file:
+    name=/etc/bird/filters
+    state=directory
+    owner=root
+
+- template:
+    src: bird.j2
+    dest: /etc/bird/bird.conf
+    owner: root
+  vars:
+    afi: 4
+  notify: reload bird
+
+- template:
+    src: bird.j2
+    dest: /etc/bird/bird6.conf
+    owner: root
+  vars:
+    afi: 6
+  notify: reload bird6

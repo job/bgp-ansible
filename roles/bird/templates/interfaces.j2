@@ -1,0 +1,6 @@
+protocol direct {
+{% for interface in interfaces|sort() %}
+    interface "{{ interface }}";
+{% endfor %}
+}
+

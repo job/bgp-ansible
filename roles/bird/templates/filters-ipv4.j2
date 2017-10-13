@@ -1,0 +1,35 @@
+function reject_bogon_prefixes()
+prefix set bogons;
+prefix set acceptable_sizes;
+prefix set below_dfz_boundry;
+{
+        below_dfz_boundry = [ 0.0.0.0/0{24,32} ];
+        acceptable_sizes = [ 0.0.0.0/0{8,24} ];
+        bogons = [
+		0.0.0.0/0,
+		0.0.0.0/8+,
+		10.0.0.0/8+,
+		127.0.0.0/8+,
+		169.254.0.0/16+,
+		192.0.2.0/24+,
+		192.168.0.0/16+,
+		192.18.0.0/15+,
+		198.51.100.0/24+,
+		203.0.113.0/24+,
+		224.0.0.0/3+,
+		100.64.0.0/10+,
+		193.239.116.0/22+
+        ];
+        if (net ~ below_dfz_boundry) then {
+                print "reject_bogon_prefixes() protocol ", proto, " Small prefix, adding NO_EXPORT community: ", net, " path: ", bgp_path;
+                bgp_community.add((65535, 65281));
+        } else if !(net ~ acceptable_sizes) then {
+                print "reject_bogon_prefixes() protocol ", proto, " Too large or too small prefix: ", net, " path: ", bgp_path;
+                reject;
+        }
+        if (net ~ bogons) then {
+                print "reject_bogon_prefixes() protocol ", proto, " bogon prefix: ", net, " path: ", bgp_path;
+                reject;
+        }
+}
+
