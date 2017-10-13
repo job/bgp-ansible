@@ -48,6 +48,9 @@ protocol bgp {{ neighbor }} {
 {% if p.rr_client is defined and p.rr_client %}
     rr client;
 {% endif %}
+{% if p.multihop is defined and p.multihop %}
+    multihop;
+{% endif %}
 }
 
 {% endfor %}
