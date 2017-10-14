@@ -52,6 +52,13 @@ function scrub_communities(int context)
     }
 }
 
+function honor_graceful_shutdown()
+{
+   if (65535, 0) ~ bgp_community then {
+	   bgp_local_pref = 0;
+   }
+}
+
 filter ntt_in
 {
     scrub_communities(untrusted);
@@ -60,6 +67,7 @@ filter ntt_in
     if net = 165.254.255.132/32 then reject;
 {% endif %}
     bgp_med = 0;
+	honor_graceful_shutdown();
     reject_rpki_invalid();
     accept;
 }
