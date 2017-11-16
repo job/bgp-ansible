@@ -57,6 +57,9 @@ protocol bgp {{ neighbor }} {
 {% if p.add_path_tx is defined and p.add_path_tx %}
     add paths tx;
 {% endif %}
+{% if p.extended_messages is defined and p.extended_messages %}
+    enable extended messages on;
+{% endif %}
 }
 
 {% endfor %}

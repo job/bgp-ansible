@@ -35,6 +35,7 @@ bgp:
       rr_client: yes
       import_filter: tardis_in
       export_filter: all
+      extended_messages: yes
     ircd1:
       neighbor_ip: 165.254.255.32
       local_ip: 165.254.255.2
@@ -73,6 +74,7 @@ bgp:
       rr_client: yes
       import_filter: tardis_in
       export_filter: all
+      extended_messages: yes
     ircd1:
       neighbor_ip: 2001:728:1808::32
       local_ip: 2001:728:1808::2
