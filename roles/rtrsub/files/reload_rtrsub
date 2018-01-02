@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+case $1 in
+	ipv4)
+		/usr/local/bin/rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf
+		birdc configure
+		birdc flush roa
+		for i in $(birdc show protocols | awk '/BGP/ { print $1 }'); do
+			birdc reload ${i}
+		done
+		;;
+	ipv4)
+		/usr/local/bin/rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf
+		birdc6 configure
+		birdc6 flush roa
+		for i in $(birdc6 show protocols | awk '/BGP/ { print $1 }'); do
+			birdc6 reload ${i}
+		done
+		;;
+	*)
+esac

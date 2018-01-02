@@ -9,6 +9,13 @@
     dest=/etc/bird/rpki-data.j2
     owner=root
 
+- name: upload reload_rtrsub
+  copy:
+    src=reload_rtrsub
+    dest=/usr/local/bin/reload_rtrsub
+    owner=root
+    mode=0755
+
 - name: "Ensure rtrsub is installed"
   pip:
     name="rtrsub"
@@ -32,14 +39,14 @@
     hour=04
     minute={{ 59 |random(seed=inventory_hostname) }}
     state=present
-    job="chronic /usr/local/bin/rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf && chronic /usr/sbin/birdc configure"
+    job="chronic /usr/local/bin/reload_rtrsub ipv4"
  
 - cron:
     name=rtrsub_ipv6
     hour=04
     minute={{ 59 |random(seed=inventory_hostname) }}
     state=present
-    job="chronic /usr/local/bin/rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf && chronic /usr/sbin/birdc6 configure"
+    job="chronic /usr/local/bin/reload_rtrsub ipv6"
 
 - command: "{{ item }}"
   with_items:
