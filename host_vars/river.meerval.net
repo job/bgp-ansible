@@ -25,6 +25,12 @@ bgp:
       import_filter: ntt_in
       export_filter: ntt_out
       preference: 99
+    atr1:
+      neighbor_ip: 165.254.255.163
+      local_ip: 165.254.255.161
+      local_as: 15562
+      remote_as: 15562
+      import_filter: atr_in
   ipv6:
     ntt1:
       neighbor_ip: 2001:728:1808:1::15
@@ -43,3 +49,9 @@ bgp:
       import_filter: all
       export_filter: ntt_out
       preference: 99
+    atr1:
+      neighbor_ip: 2001:728:1808:4::3
+      local_ip: 2001:728:1808:4::1
+      local_as: 15562
+      remote_as: 15562
+      import_filter: atr_in
