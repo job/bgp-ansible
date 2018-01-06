@@ -23,8 +23,6 @@ statics:
       via: blackhole
     '2001:67c:208c::1/128':
       via: 2001:728:1808::2
-    '2607:fae0:245::/48':
-      via: blackhole
 bgp:
   defaults:
     local_as: 15562
@@ -168,3 +166,8 @@ bgp:
       table: collector
       add_path_tx: yes
       rr_client: yes
+    atr1:
+      neighbor_ip: 2001:728:1808::b
+      remote_as: 15562
+      local_ip: 2001:728:1808::1
+      import_filter: atr_in

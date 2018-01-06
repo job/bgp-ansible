@@ -1,0 +1,10 @@
+filter atr_in
+{
+    scrub_communities(trusted);
+    if net = 2607:fae0:245::/48 then {
+        bgp_large_community.add((15562,0,1));
+        accept;
+    }
+    reject;
+}
+

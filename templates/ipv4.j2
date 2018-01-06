@@ -1,0 +1,9 @@
+filter atr_in
+{
+    scrub_communities(trusted);
+    if net = 67.221.245.0/24 then {
+        bgp_large_community.add((15562,0,1));
+        accept;
+    }
+    reject;
+}
