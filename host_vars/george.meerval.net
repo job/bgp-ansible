@@ -29,6 +29,11 @@ bgp:
       local_ip: 165.254.255.145
       remote_as: 57436
       import_filter: samer_in
+    atr1:
+      neighbor_ip: 165.254.255.150
+      local_ip: 165.254.255.145
+      remote_as: 15562
+      import_filter: atr_in
   ipv6:
     ntt1:
       neighbor_ip: 2001:728:1808:1::5
@@ -50,3 +55,8 @@ bgp:
       local_ip: 2001:728:1808:3::1
       remote_as: 57436
       import_filter: samer_in
+    atr1:
+      neighbor_ip: 2001:728:1808:3::6
+      local_ip: 2001:728:1808:3::1
+      remote_as: 15562
+      import_filter: atr_in
