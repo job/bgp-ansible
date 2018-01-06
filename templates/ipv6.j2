@@ -8,3 +8,14 @@ filter atr_in
     reject;
 }
 
+filter tardis_in
+{
+    if net ~ [ 2001:67c:208c:10::/64, 2001:728:1808:1::20/126 ] then accept;
+    reject;
+}
+
+filter ircd_in
+{
+    if ( net = 2001:728:1808:2::132/128 ) then accept;
+    reject;
+}

@@ -7,3 +7,15 @@ filter atr_in
     }
     reject;
 }
+
+filter tardis_in
+{
+    if (net = 192.147.168.0/25) then accept;
+    reject;
+}
+
+filter ircd_in
+{
+    if (net = 165.254.255.132/32) then accept;
+    reject;
+}
