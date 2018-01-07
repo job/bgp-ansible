@@ -11,19 +11,14 @@
     owner=root
     mode=0755
 
+- name: install pip3
+  apt: name=python3-pip state=latest
+
 - name: "Ensure rtrsub is installed"
   pip:
     name="rtrsub"
     state=latest
-    virtualenv="/usr/local/rtrsub"
-    virtualenv_python=python2.7
-
-- file:
-    src=/usr/local/rtrsub/bin/rtrsub
-    dest=/usr/local/bin/rtrsub
-    state=link
-    owner=root
-    group=root
+    executable=pip3
 
 - apt:
     name=moreutils
