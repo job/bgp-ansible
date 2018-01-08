@@ -25,3 +25,12 @@
   vars:
     afi: 6
   notify: reload bird6
+
+- name: install bird
+  apt: name=bird state=latest
+
+- name: start bird
+  service: name=bird state=started enabled=yes
+
+- name: start bird6
+  service: name=bird6 state=started enabled=yes
