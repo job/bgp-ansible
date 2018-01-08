@@ -4,7 +4,7 @@ loopback:
   6: '2a02:898:52:ffff::1'
 interfaces:
   - eth0
-  - virbr0
+  - virbr2
 bgp:
   defaults:
     local_as: 15562
@@ -22,8 +22,8 @@ bgp:
       allow_as_in: 2
       export_filter: coloclue_out
     atr1:
-      neighbor_ip: 94.142.242.233
-      local_ip: 94.142.240.201
+      neighbor_ip: 94.142.242.237
+      local_ip: 94.142.242.236
       remote_as: 15562
       import_filter: atr_in
   ipv6:
@@ -40,7 +40,7 @@ bgp:
       allow_as_in: 2
       export_filter: coloclue_out
     atr1:
-      neighbor_ip: 2a02:898:52:ffff::233
-      local_ip: 2a02:898:52:ffff::1
+      neighbor_ip: 2a02:898:52:fffd::b
+      local_ip: 2a02:898:52:fffd::a
       remote_as: 15562
       import_filter: atr_in
