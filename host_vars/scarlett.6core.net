@@ -77,7 +77,7 @@ bgp:
       table: collector
       preference: 1
     nttus1:
-      neighbor_ip: 129.250.000.223
+      neighbor_ip: 129.250.1.89
       remote_as: 2914
       local_ip: 165.254.255.1
       multihop: yes
@@ -93,7 +93,7 @@ bgp:
       table: collector
       preference: 1
     nttasia1:
-      neighbor_ip: 129.250.000.225
+      neighbor_ip: 129.250.1.248
       remote_as: 2914
       local_ip: 165.254.255.1
       multihop: yes
