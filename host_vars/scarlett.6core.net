@@ -151,7 +151,7 @@ bgp:
       multihop: yes
       table: collector
     nttasia1:
-      neighbor_ip: 2001:218:0:1000::f01c
+      neighbor_ip: 2001:418:0:1000::f003
       remote_as: 2914
       local_ip: 2001:728:1808::1
       import_filter: all
