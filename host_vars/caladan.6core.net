@@ -34,7 +34,7 @@ bgp:
       allow_as_in: 2
       export_filter: coloclue_out
     coloclue2:
-      neighbor_ip: 2a02:898:0:20::e1
+      neighbor_ip: 2a02:898:0:20::e2
       local_ip: 2a02:898:0:20::52:1
       remote_as: 8283
       allow_as_in: 2
