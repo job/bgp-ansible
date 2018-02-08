@@ -70,6 +70,7 @@ bgp:
       remote_as: 12654
       local_ip: 165.254.255.2
       multihop: yes
+      import_filter: AS12654_import
       export_filter: all
   ipv6:
     ibgp1:
@@ -119,5 +120,6 @@ bgp:
       neighbor_ip: 2001:67c:2e8:2:ffff:0:4:28
       remote_as: 12654
       local_ip: 2001:728:1808::2
+      import_filter: AS12654_import
       export_filter: all
       multihop: yes
