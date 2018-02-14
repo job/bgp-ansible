@@ -1,0 +1,40 @@
+router_id: 165.254.255.65
+loopback:
+  4: '165.254.255.65'
+  6: '2001:728:1808:5::1'
+interfaces:
+  - virbr0
+  - ens1f0
+bgp:
+  defaults:
+    local_as: 15562
+  ipv4:
+    ntt1:
+      neighbor_ip: 192.147.168.224
+      local_ip: 192.147.168.225
+      remote_as: 2914
+      allow_as_in: 2
+      import_filter: ntt_in
+      export_filter: ntt_out
+    ntt2:
+      neighbor_ip: 192.147.168.226
+      local_ip: 192.147.168.227
+      remote_as: 2914
+      allow_as_in: 2
+      import_filter: ntt_in
+      export_filter: ntt_out
+  ipv6:
+    ntt1:
+      neighbor_ip: 2001:728:1808:1::30
+      local_ip: 2001:728:1808:1::31
+      remote_as: 2914
+      allow_as_in: 1
+      import_filter: ntt_in
+      export_filter: ntt_out
+    ntt2:
+      neighbor_ip: 2001:728:1808:1::2c
+      local_ip: 2001:728:1808:1::2d
+      remote_as: 2914
+      allow_as_in: 1
+      import_filter: ntt_in
+      export_filter: ntt_out
