@@ -5,6 +5,13 @@ loopback:
 interfaces:
   - eth0
   - virbr2
+statics:
+  4:
+    '204.2.30.0/23':
+      via: blackhole
+  6:
+    '2001:418:144e::/47':
+      via: blackhole
 bgp:
   defaults:
     local_as: 15562
