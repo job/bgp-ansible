@@ -113,7 +113,7 @@ bgp:
       local_ip: 2001:728:1808::2
       remote_as: 15562
       import_filter: ircd_in
-    ntt2:
+    ntt1:
       neighbor_ip: 2001:728:0:5000::a91
       local_ip: 2001:728:0:5000::a92
       remote_as: 2914
