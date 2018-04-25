@@ -87,6 +87,12 @@ bgp:
       local_ip: 165.254.255.2
       multihop: yes
       table: collector2
+    powerdns1:
+      neighbor_ip: 192.147.168.229
+      local_ip: 192.147.168.228
+      remote_as: 43997
+      import_filter: AS43997_import
+      export_filter: all
   ipv6:
     ibgp1:
       neighbor_ip: 2001:728:1808::1
@@ -119,6 +125,12 @@ bgp:
       local_ip: 2001:728:1808:1::1d
       remote_as: 31451
       import_filter: AS31451_import
+      export_filter: all
+    powerdns1:
+      neighbor_ip: 2001:728:1808:1::2f
+      local_ip: 2001:728:1808:1::2e
+      remote_as: 43997
+      import_filter: AS43997_import
       export_filter: all
     kiera1:
       neighbor_ip: 2001:728:1808::26
