@@ -19,6 +19,7 @@ statics:
     '2001:728:1808::/48':
       via: blackhole
 bgp:
+  drain_mode: True
   defaults:
     local_as: 15562
   tables:

@@ -60,6 +60,13 @@ function honor_graceful_shutdown()
    }
 }
 
+function send_graceful_shutdown()
+{
+   bgp_community.add((65535, 0));
+   bgp_local_pref = 0;
+   preference = 0;
+}
+
 filter ntt_in
 {
     scrub_communities(untrusted);
@@ -69,6 +76,9 @@ filter ntt_in
 {% endif %}
     bgp_med = 0;
 	honor_graceful_shutdown();
+{% if bgp['drain_mode'] %}
+    send_graceful_shutdown();
+{% endif %}
     reject_rpki_invalid();
     accept;
 }
