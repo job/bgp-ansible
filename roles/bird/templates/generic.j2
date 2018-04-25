@@ -76,7 +76,7 @@ filter ntt_in
 {% endif %}
     bgp_med = 0;
 	honor_graceful_shutdown();
-{% if bgp['drain_mode'] %}
+{% if bgp['drain_mode']|default(False) %}
     send_graceful_shutdown();
 {% endif %}
     reject_rpki_invalid();
