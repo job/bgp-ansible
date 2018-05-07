@@ -26,6 +26,7 @@ statics:
     '2001:67c:208c::1/128':
       via: 2001:728:1808::2
 bgp:
+  drain_mode: False
   defaults:
     local_as: 15562
   tables:
