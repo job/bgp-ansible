@@ -5,3 +5,6 @@ river.meerval.net
 george.meerval.net
 pete.meerval.net
 caladan.6core.net
+
+[nlnog]
+nlnog-router ansible_hostname=145.116.208.17
