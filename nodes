@@ -7,4 +7,4 @@ pete.meerval.net
 caladan.6core.net
 
 [nlnog]
-nlnog-router ansible_hostname=145.116.208.17
+nlnog-router ansible_ssh_host=145.116.208.17
