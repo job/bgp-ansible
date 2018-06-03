@@ -4,10 +4,3 @@
   roles:
     - { role: bird, tags: ['bgp', 'bird']}
     - { role: rtrsub, tags: ['bgp', 'rtrsub']}
-
-- hosts: nlnog
-  become: true
-  become_user: root
-  roles:
-    - { role: bird, tags: ['bgp', 'bird']}
-    - { role: rtrsub, tags: ['bgp', 'rtrsub']}
