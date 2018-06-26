@@ -156,3 +156,9 @@ bgp:
       remote_as: 393338
       export_filter: all
       multihop: yes
+    louis1:
+      neighbor_ip: 2001:728:1808:1::33
+      local_ip: 2001:728:1808:1::32
+      remote_as: 205956
+      import_filter: AS205956_import
+      export_filter: all

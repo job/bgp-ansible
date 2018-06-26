@@ -40,5 +40,5 @@
 
 - command: "{{ item }}"
   with_items:
-    - "rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf"
-    - "rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf"
+    - "rtrsub -c https://rpki.meerval.net/api/export.json --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf"
+    - "rtrsub -c https://rpki.meerval.net/api/export.json --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf"

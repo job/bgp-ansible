@@ -6,14 +6,14 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 case $1 in
 	ipv4)
-		/usr/local/bin/rtrsub --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf
+		/usr/local/bin/rtrsub -c https://rpki.meerval.net/api/export.json --afi ipv4 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv4.conf
 		birdc configure
 		birdc flush roa
 		sleep 10
 		birdc reload all
 		;;
 	ipv6)
-		/usr/local/bin/rtrsub --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf
+		/usr/local/bin/rtrsub -c https://rpki.meerval.net/api/export.json --afi ipv6 -t /etc/bird/rpki-data.j2 -o /etc/bird/rpki-data.ipv6.conf
 		birdc6 configure
 		birdc6 flush roa
 		sleep 10

@@ -69,16 +69,18 @@ function send_graceful_shutdown()
 
 filter ntt_in
 {
+    reject_bogon_prefixes();
     scrub_communities(untrusted);
 {% if afi == 4 %}
 {# make sure we don't accept this prefix from the scrubber #}
     if net = 165.254.255.132/32 then reject;
 {% endif %}
     bgp_med = 0;
-	honor_graceful_shutdown();
+    honor_graceful_shutdown();
 {% if bgp['drain_mode']|default(False) %}
     send_graceful_shutdown();
 {% endif %}
     reject_rpki_invalid();
     accept;
 }
+

@@ -37,15 +37,15 @@ prefix set below_dfz_boundry;
                 fec0::/10{10,128},              /* RFC 4291 - Reserved by IETF */
                 ff00::/8{8,128}                 /* RFC 4291 - Multicast */
         ];
+        if (net ~ bogons) then {
+                print "reject_bogon_prefixes() protocol ", proto, " bogon prefix: ", net, " path: ", bgp_path;
+                reject;
+        }
         if (net ~ below_dfz_boundry) then {
                 print "reject_bogon_prefixes() protocol ", proto, " Small prefix, adding NO_EXPORT community: ", net, " path: ", bgp_path;
                 bgp_community.add((65535, 65281));
         } else if !(net ~ acceptable_sizes) then {
                 print "reject_bogon_prefixes() protocol ", proto, " Too large or too small prefix: ", net, " path: ", bgp_path;
-                reject;
-        }
-        if (net ~ bogons) then {
-                print "reject_bogon_prefixes() protocol ", proto, " bogon prefix: ", net, " path: ", bgp_path;
                 reject;
         }
 }
