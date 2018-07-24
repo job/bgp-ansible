@@ -25,7 +25,6 @@ protocol bgp {{ neighbor }} {
     allow local as {{ p.allow_as_in }};
 {% endif %}
     import keep filtered;
-    import limit 100;
 {% if p.import_filter is not defined %}
     import none;
 {% elif p.import_filter == 'all' %}
