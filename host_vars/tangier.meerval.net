@@ -162,3 +162,9 @@ bgp:
       remote_as: 205956
       import_filter: AS205956_import
       export_filter: all
+    marlinc1:
+      neighbor_ip: 2001:728:1808:1::35
+      local_ip: 2001:728:1808:1::34
+      remote_as: 60927
+      import_filter: AS60927_import
+      export_filter: all
