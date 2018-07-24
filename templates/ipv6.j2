@@ -20,3 +20,19 @@ filter ircd_in
     reject;
 }
 
+define TRANSIT_FREE_ASNS = [
+{% for asn in bgp_params['transit_free_asns'] %}
+{{ asn }}
+{%- if not loop.last -%},{%- endif -%}
+{% endfor %}
+];
+
+function reject_transit_paths()
+int set transit_asns;
+{
+        transit_asns = TRANSIT_FREE_ASNS;
+        if (bgp_path ~ transit_asns) then {
+                print "Reject: Transit Free ASNs found downstream: ", net, " ", bgp_path;
+                reject;
+        }
+}
