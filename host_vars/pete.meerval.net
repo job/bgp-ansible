@@ -5,6 +5,13 @@ loopback:
 interfaces:
   - virbr0
   - ens1f0
+statics:
+  4:
+    '209.24.0.0/24':
+      via: 165.254.255.68
+    '209.24.1.0/24':
+      via: 165.254.255.68
+  6: {}
 bgp:
   defaults:
     local_as: 15562
