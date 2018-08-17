@@ -23,6 +23,8 @@ statics:
       via: blackhole
     '209.24.4.0/22':
       via: blackhole
+    '209.24.2.0/24':
+      via: blackhole
     '209.24.3.0/24':
       via: blackhole
   6:
