@@ -182,3 +182,9 @@ bgp:
       remote_as: 60927
       import_filter: AS60927_import
       export_filter: all
+    cynthia1:
+      neighbor_ip: 2001:728:1808:1::37
+      local_ip: 2001:728:1808:1::36
+      remote_as: 57782
+      import_filter: AS57782_import
+      export_filter: all
