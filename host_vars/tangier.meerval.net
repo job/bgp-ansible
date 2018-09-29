@@ -107,6 +107,12 @@ bgp:
       remote_as: 43997
       import_filter: AS43997_import
       export_filter: all
+    cynthia1:
+      neighbor_ip: 192.147.168.231
+      local_ip: 192.147.168.230
+      remote_as: 57782
+      import_filter: AS57782_import
+      export_filter: all
   ipv6:
     ibgp1:
       neighbor_ip: 2001:728:1808::1
