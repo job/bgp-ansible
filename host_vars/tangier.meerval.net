@@ -95,12 +95,6 @@ bgp:
       local_ip: 165.254.255.2
       multihop: yes
       export_filter: all
-    ntt_full_view:
-      neighbor_ip: 129.250.0.121
-      remote_as: 2914
-      local_ip: 165.254.255.2
-      multihop: yes
-      table: collector2
     powerdns1:
       neighbor_ip: 192.147.168.229
       local_ip: 192.147.168.228
