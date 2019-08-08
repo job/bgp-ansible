@@ -1,69 +1,30 @@
 {#
 
-Common RPKI functions to use with BIRD
+Static RPKI based Origin Validatoin for BIRD
 
-reject_rpki_invalid() - implicit arguments
-    depends on these two functions:
-        - complies_with_roa() - implicit arguments
+function reject_rpki_invalid() - no explicit arguments
     to be applied on each and every EBGP session
 
-origin_to_roa(int asn)
-    to be used to accept prefixes from an adjacent ASN
-    if no IRR route object exists, but a valid ROA + announcement exist.
 #}
 
-{% for origin in origin_dict %}
-define ROAS_AS{{ origin }} = [
-        {% for prefix in origin_dict[origin] -%}
-{%- if origin_dict[origin][prefix]['length'] == origin_dict[origin][prefix]['maxlength'] -%}
-{{ prefix }}
-{%- else -%}
-{{ prefix }}{{ "{" }}{{ origin_dict[origin][prefix]['length'] }},{{ origin_dict[origin][prefix]['maxlength'] }}{{ "}" }}
-{%- endif -%}
-{%- if not loop.last -%},{%- endif -%}
-{%- if loop.index % 4 == 0 and not loop.last -%}
-{{ "\n        " }}
-{%- else -%}
-{{ " " }}
-{%- endif -%}
-{%- endfor -%}
-    ];
-{% endfor %}
-
 roa table ROAS {
-{%- for roa in roa_list %}
-    roa {{ roa['p'] }} max {{ roa['m'] }} as {{ roa['o'] }};
-{%- endfor -%}
-}
-
-function origin_to_roa(int asn)
-{
-    case asn {
-{%- for origin in origin_dict|sort() if not origin == 0 %}
-        {{ origin }}: return net ~ ROAS_AS{{ origin }};
-{%- endfor %}
-        else: return false;
-    }
+{% for roa in roa_list|sort(attribute='origin') -%}
+{{ "    " }}roa {{ roa['prefix'] }} max {{ roa['maxlen'] }} as {{ roa['origin'] }};
+{% endfor -%}
 }
 
 function reject_rpki_invalid()
 {
-    bgp_large_community.delete([(15562, 4300, *)]);
-
-    if (roa_check(ROAS, net, bgp_path.last_nonaggregated) = ROA_VALID) then {
+    case roa_check(ROAS, net, bgp_path.last_nonaggregated) {
+    ROA_VALID:
         /* add rfc8097 marker to routes for which a valid matching ROA exists */
         bgp_ext_community.add((unknown 0x4300, 0, 0));
-        bgp_large_community.add((15562, 4300, 0));
-    }
-    else if (roa_check(ROAS, net, bgp_path.last_nonaggregated) = ROA_INVALID) then {
+    ROA_INVALID:
         print "Reject: RPKI ROA check failed for ", net, " ", bgp_path, " protocol: ", proto;
         bgp_ext_community.add((unknown 0x4300, 0, 2));
-        bgp_large_community.add((15562, 4300, 2));
         reject;
-    }
-    else {
+    else:
         /* add rfc8097 marker to routes for which no covering ROA exists */
         bgp_ext_community.add((unknown 0x4300, 0, 1));
-        bgp_large_community.add((15562, 4300, 1));
     }
 }
