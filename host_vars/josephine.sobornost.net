@@ -1,0 +1,57 @@
+router_id: '193.239.118.176'
+loopback:
+  4: '193.239.118.176'
+  6: '2001:7f8:13::a501:5562:1'
+interfaces:
+  - eno2
+  - eno3
+  - enp4s0f1.7
+bgp:
+  ipv4:
+    xs4all1:
+      neighbor_ip: 194.109.11.93
+      local_ip: 194.109.11.94
+      local_as: 15562
+      remote_as: 3265
+      allow_as_in: 2
+      import_filter: xs4all_in
+      export_filter: xs4all_out
+    xs4all2:
+      neighbor_ip: 194.109.11.17
+      local_ip: 194.109.11.18
+      local_as: 15562
+      remote_as: 3265
+      allow_as_in: 2
+      import_filter: xs4all_in
+      export_filter: xs4all_out
+    nlixrs1:
+      neighbor_ip: 193.239.116.255
+      local_ip: 193.239.118.176
+      local_as: 15562
+      remote_as: 34307
+    nlixrs2:
+      neighbor_ip: 193.239.117.0
+      local_ip: 193.239.118.176
+      local_as: 15562
+      remote_as: 34307
+  ipv6:
+    xs4all1:
+      neighbor_ip: 2001:888:1:801b::1
+      local_ip: 2001:888:1:801b::2
+      local_as: 15562
+      remote_as: 3265
+    xs4all2:
+      neighbor_ip: 2001:888:1:801a::1
+      local_ip: 2001:888:1:801a::2
+      local_as: 15562
+      remote_as: 3265
+    nlixrs1:
+      neighbor_ip: 2001:7f8:13::a503:4307:1
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      remote_as: 34307
+    nlixrs2:
+      neighbor_ip: 2001:7f8:13::a503:4307:2
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      remote_as: 34307
