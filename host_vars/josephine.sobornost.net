@@ -34,6 +34,16 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       remote_as: 34307
+    coloclue1:
+      neighbor_ip: 193.239.117.111
+      remote_as: 8283
+      local_ip: 193.239.118.176
+      local_as: 15562
+    coloclue2:
+      neighbor_ip: 193.239.117.203
+      remote_as: 8283
+      local_ip: 193.239.118.176
+      local_as: 15562
   ipv6:
     xs4all1:
       neighbor_ip: 2001:888:1:801b::1
@@ -55,3 +65,13 @@ bgp:
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       remote_as: 34307
+    coloclue1:
+      neighbor_ip: 2001:7f8:13::a500:8283:1
+      remote_as: 8283
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+    coloclue2:
+      neighbor_ip: 2001:7f8:13::a500:8283:2
+      remote_as: 8283
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
