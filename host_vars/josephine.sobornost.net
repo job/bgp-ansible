@@ -1,11 +1,18 @@
-router_id: '193.239.118.176'
+router_id: '45.138.228.0'
 loopback:
-  4: '193.239.118.176'
-  6: '2001:7f8:13::a501:5562:1'
+  4: '45.138.228.0'
+  6: '2a0e:b240::'
 interfaces:
   - eno2
   - eno3
   - enp4s0f1.7
+statics:
+  4:
+    '45.138.228.0/24':
+      via: blackhole
+  6:
+    '2a0e:b240::/48':
+      via: blackhole
 bgp:
   ipv4:
     xs4all1:
@@ -15,7 +22,7 @@ bgp:
       remote_as: 3265
       allow_as_in: 2
       import_filter: xs4all_in
-      export_filter: xs4all_out
+      export_filter: up_out
     xs4all2:
       neighbor_ip: 194.109.11.17
       local_ip: 194.109.11.18
@@ -23,55 +30,65 @@ bgp:
       remote_as: 3265
       allow_as_in: 2
       import_filter: xs4all_in
-      export_filter: xs4all_out
+      export_filter: up_out
     nlixrs1:
       neighbor_ip: 193.239.116.255
       local_ip: 193.239.118.176
       local_as: 15562
       remote_as: 34307
+      export_filter: up_out
     nlixrs2:
       neighbor_ip: 193.239.117.0
       local_ip: 193.239.118.176
       local_as: 15562
       remote_as: 34307
+      export_filter: up_out
     coloclue1:
       neighbor_ip: 193.239.117.111
       remote_as: 8283
       local_ip: 193.239.118.176
       local_as: 15562
+      export_filter: up_out
     coloclue2:
       neighbor_ip: 193.239.117.203
       remote_as: 8283
       local_ip: 193.239.118.176
       local_as: 15562
+      export_filter: up_out
   ipv6:
     xs4all1:
       neighbor_ip: 2001:888:1:801b::1
       local_ip: 2001:888:1:801b::2
       local_as: 15562
       remote_as: 3265
+      export_filter: up_out
     xs4all2:
       neighbor_ip: 2001:888:1:801a::1
       local_ip: 2001:888:1:801a::2
       local_as: 15562
       remote_as: 3265
+      export_filter: up_out
     nlixrs1:
       neighbor_ip: 2001:7f8:13::a503:4307:1
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       remote_as: 34307
+      export_filter: up_out
     nlixrs2:
       neighbor_ip: 2001:7f8:13::a503:4307:2
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       remote_as: 34307
+      export_filter: up_out
     coloclue1:
       neighbor_ip: 2001:7f8:13::a500:8283:1
       remote_as: 8283
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
+      export_filter: up_out
     coloclue2:
       neighbor_ip: 2001:7f8:13::a500:8283:2
       remote_as: 8283
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
+      export_filter: up_out
