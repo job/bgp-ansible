@@ -5,6 +5,8 @@ loopback:
 interfaces:
   - virbr0
   - ens1f0
+  - ens2f0
+  - lo
 statics:
   4:
     '209.24.0.0/24':
