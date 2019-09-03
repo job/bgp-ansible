@@ -107,6 +107,12 @@ bgp:
       remote_as: 57782
       import_filter: AS57782_import
       export_filter: all
+    arjen1:
+      neighbor_ip: 192.147.168.235
+      local_ip: 192.147.168.234
+      remote_as: 48603
+      import_filter: AS48603_import
+      export_filter: all
   ipv6:
     ibgp1:
       neighbor_ip: 2001:728:1808::1
@@ -187,4 +193,10 @@ bgp:
       local_ip: 2001:728:1808:1::36
       remote_as: 57782
       import_filter: AS57782_import
+      export_filter: all
+    arjen1:
+      neighbor_ip: 2001:728:1808:1::3b
+      local_ip: 2001:728:1808:1::3a
+      remote_as: 48603
+      import_filter: AS48603_import
       export_filter: all
