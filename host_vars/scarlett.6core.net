@@ -8,6 +8,7 @@ interfaces:
   - tardis4
   - tardis6
   - eth0.100
+  - arjen1
 statics:
   4:
     '192.147.168.0/24':
@@ -103,6 +104,12 @@ bgp:
       import_filter: all
       table: collector
       preference: 1
+    arjen1:
+      neighbor_ip: 192.147.168.237
+      local_ip: 192.147.168.236
+      remote_as: 48603
+      import_filter: AS48603_import
+      export_filter: all
   ipv6:
     ibgp1:
       neighbor_ip: 2001:728:1808::2
@@ -174,3 +181,9 @@ bgp:
       remote_as: 15562
       local_ip: 2001:728:1808::1
       import_filter: atr_in
+    arjen1:
+      neighbor_ip: 2001:728:1808:1::3d
+      local_ip: 2001:728:1808:1::3c
+      remote_as: 48603
+      import_filter: AS48603_import
+      export_filter: all
