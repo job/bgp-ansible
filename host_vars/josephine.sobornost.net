@@ -14,6 +14,7 @@ statics:
     '2a0e:b240::/48':
       via: blackhole
 bgp:
+  drain_mode: False
   ipv4:
     xs4all1:
       neighbor_ip: 194.109.11.93
@@ -55,6 +56,13 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       export_filter: up_out
+    rinse1:
+      neighbor_ip: 136.144.22.4
+      remote_as: 208241
+      local_ip: 136.144.22.1
+      local_as: 15562
+      import_filter: AS208241_import
+      export_filter: all
   ipv6:
     xs4all1:
       neighbor_ip: 2001:888:1:801b::1

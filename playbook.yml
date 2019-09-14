@@ -4,3 +4,4 @@
   roles:
     - { role: bird, tags: ['bgp', 'bird']}
     - { role: rtrsub, tags: ['bgp', 'rtrsub']}
+    - { role: filtergen, tags: ['bgp', 'filtergen']}
