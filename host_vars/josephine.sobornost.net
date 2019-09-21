@@ -10,6 +10,8 @@ statics:
   4:
     '45.138.228.0/24':
       via: blackhole
+    '136.144.22.0/24':
+      via: blackhole
   6:
     '2a0e:b240::/48':
       via: blackhole
