@@ -5,8 +5,8 @@ loopback:
 interfaces:
   - lo
   - virbr0
-  - tardis4
-  - tardis6
+  - mieli4
+  - mieli6
   - eth0.100
   - arjen1
 statics:
@@ -39,12 +39,12 @@ bgp:
       local_ip: 165.254.255.1
       import_filter: all
       export_filter: all
-    tardis1:
+    mieli1:
       neighbor_ip: 192.147.168.246
       local_ip: 192.147.168.245
       remote_as: 15562
       rr_client: yes
-      import_filter: tardis_in
+      import_filter: mieli_in
       export_filter: all
     ircd1:
       neighbor_ip: 165.254.255.32
@@ -117,12 +117,12 @@ bgp:
       remote_as: 15562
       import_filter: import_ntt
       export_filter: all
-    tardis1:
+    mieli1:
       neighbor_ip: 2001:728:1808:1::2a
       local_ip: 2001:728:1808:1::29
       remote_as: 15562
       rr_client: yes
-      import_filter: tardis_in
+      import_filter: mieli_in
       export_filter: all
     ircd1:
       neighbor_ip: 2001:728:1808::32
