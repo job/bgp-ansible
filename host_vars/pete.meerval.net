@@ -21,6 +21,7 @@ statics:
     '2001:7fb:fd04::/48':
       via: blackhole
 bgp:
+  drain_mode: false
   defaults:
     local_as: 15562
   ipv4:
@@ -43,6 +44,12 @@ bgp:
       local_ip: 165.254.255.65
       remote_as: 15562
       import_filter: atr_in
+    ntt_test1:
+      neighbor_ip: 129.250.121.110
+      local_ip: 165.254.255.65
+      remote_as: 2914
+      multihop: yes
+      export_filter: ntt_test_out
   ipv6:
     ntt1:
       neighbor_ip: 2001:728:1808:1::30

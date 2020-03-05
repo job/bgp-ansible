@@ -22,7 +22,7 @@
 
 - apt:
     name=moreutils
-    state=installed
+    state=latest
 
 - cron:
     name=rtrsub_ipv4
