@@ -17,6 +17,8 @@ statics:
       via: 165.254.255.68
     '198.58.3.0/24':
       via: blackhole
+    '192.147.175.0/24':
+      via: blackhole
   6:
     '2001:7fb:fd04::/48':
       via: blackhole
