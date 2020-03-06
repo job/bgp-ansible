@@ -52,6 +52,12 @@ bgp:
       remote_as: 2914
       multihop: yes
       export_filter: ntt_test_out
+    ntt_test2:
+      neighbor_ip: 129.250.121.111
+      local_ip: 165.254.255.65
+      remote_as: 2914
+      multihop: yes
+      export_filter: ntt_test_out
   ipv6:
     ntt1:
       neighbor_ip: 2001:728:1808:1::30
