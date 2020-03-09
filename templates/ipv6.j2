@@ -10,8 +10,10 @@ filter atr_in
 
 filter mieli_in
 {
-    if net ~ [ 2001:67c:208c:10::/64, 2001:728:1808:1::20/126 ] then accept;
-    preference = 111;
+    if net ~ [ 2001:67c:208c:10::/64, 2001:728:1808:1::20/126 ] then {
+        preference = 111;
+        accept;
+    }
     reject;
 }
 

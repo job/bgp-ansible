@@ -31,7 +31,7 @@ statics:
       via: blackhole
   6:
     '2001:67c:208c::/48':
-      via: 2001:728:1808::8
+      via: blackhole
     '2001:728:1808::/48':
       via: blackhole
 bgp:

@@ -10,8 +10,10 @@ filter atr_in
 
 filter mieli_in
 {
-    if (net = 192.147.168.0/25) then accept;
-    preference = 111;
+    if (net = 192.147.168.0/25) then {
+        preference = 111;
+        accept;
+    }
     reject;
 }
 
