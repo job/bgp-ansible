@@ -119,7 +119,7 @@ bgp:
       neighbor_ip: 2001:728:1808::2
       local_ip: 2001:728:1808::1
       remote_as: 15562
-      import_filter: import_ntt
+      import_filter: all
       export_filter: all
     mieli1:
       neighbor_ip: 2001:728:1808:1::2a
