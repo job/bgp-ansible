@@ -7,6 +7,7 @@ interfaces:
   - eth1
   - lo
   - mieli4
+  - mieli6
   - arjen1
 statics:
   4:
