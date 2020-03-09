@@ -78,6 +78,7 @@ bgp:
       local_ip: 165.254.255.1
       multihop: yes
       import_filter: all
+      allow_as_in: 2
       table: collector
       preference: 1
     nttus1:
@@ -85,6 +86,7 @@ bgp:
       remote_as: 2914
       local_ip: 165.254.255.1
       multihop: yes
+      allow_as_in: 2
       import_filter: all
       table: collector
       preference: 1
@@ -93,6 +95,7 @@ bgp:
       remote_as: 2914
       local_ip: 165.254.255.1
       multihop: yes
+      allow_as_in: 2
       import_filter: all
       table: collector
       preference: 1
@@ -101,6 +104,7 @@ bgp:
       remote_as: 2914
       local_ip: 165.254.255.1
       multihop: yes
+      allow_as_in: 2
       import_filter: all
       table: collector
       preference: 1
@@ -141,6 +145,7 @@ bgp:
       remote_as: 2914
       local_ip: 2001:728:1808::1
       import_filter: all
+      allow_as_in: 2
       preference: 1
       multihop: yes
       table: collector
@@ -149,6 +154,7 @@ bgp:
       remote_as: 2914
       local_ip: 2001:728:1808::1
       import_filter: all
+      allow_as_in: 2
       preference: 1
       multihop: yes
       table: collector
@@ -157,6 +163,7 @@ bgp:
       remote_as: 2914
       local_ip: 2001:728:1808::1
       import_filter: all
+      allow_as_in: 2
       preference: 1
       multihop: yes
       table: collector
@@ -167,6 +174,7 @@ bgp:
       import_filter: all
       preference: 1
       multihop: yes
+      allow_as_in: 2
       table: collector
     kiera1:
       neighbor_ip: 2001:728:1808::26
