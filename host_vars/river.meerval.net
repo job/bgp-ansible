@@ -7,6 +7,7 @@ interfaces:
   - ens8f0
   - enp4s0f0
 bgp:
+  drain_mode: False
   ipv4:
     ntt1:
       neighbor_ip: 165.254.255.245

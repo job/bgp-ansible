@@ -53,8 +53,8 @@ int set AS48603_origins;
     reject_bogon_asns();
     reject_bogon_prefixes();
     reject_rpki_invalid();
-    if !(bgp_path.last_nonaggregated ~ AS48603_origins) then {
-        print "AS48603_import() protocol ", proto, " Origin AS ", bgp_path.last_nonaggregated, " not in IRR AS48603: ", net, " path: ", bgp_path;
+    if !(bgp_path.last ~ AS48603_origins) then {
+        print "AS48603_import() protocol ", proto, " Origin AS ", bgp_path.last, " not in IRR AS48603: ", net, " path: ", bgp_path;
         reject;
     }
     if (net ~ AS48603) then {
@@ -78,8 +78,8 @@ int set AS208241_origins;
     reject_bogon_asns();
     reject_bogon_prefixes();
     reject_rpki_invalid();
-    if !(bgp_path.last_nonaggregated ~ AS208241_origins) then {
-        print "AS208241_import() protocol ", proto, " Origin AS ", bgp_path.last_nonaggregated, " not in IRR AS208241: ", net, " path: ", bgp_path;
+    if !(bgp_path.last ~ AS208241_origins) then {
+        print "AS208241_import() protocol ", proto, " Origin AS ", bgp_path.last, " not in IRR AS208241: ", net, " path: ", bgp_path;
         reject;
     }
     if (net ~ AS208241) then {

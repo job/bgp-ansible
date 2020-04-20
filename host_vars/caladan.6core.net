@@ -13,6 +13,7 @@ statics:
     '2001:418:144e::/47':
       via: blackhole
 bgp:
+  drain_mode: False
   defaults:
     local_as: 15562
   ipv4:
