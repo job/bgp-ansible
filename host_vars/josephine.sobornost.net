@@ -56,6 +56,12 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       export_filter: up_out
+    he1:
+      neighbor_ip: 193.239.116.14
+      remote_as: 6939
+      local_ip: 193.239.118.176
+      local_as: 15562
+      export_filter: up_out
     rinse1:
       neighbor_ip: 136.144.22.4
       remote_as: 208241
@@ -97,6 +103,12 @@ bgp:
     coloclue2:
       neighbor_ip: 2001:7f8:13::a500:8283:2
       remote_as: 8283
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      export_filter: up_out
+    he1:
+      neighbor_ip: 2001:7f8:13::a500:6939:1
+      remote_as: 6939
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       export_filter: up_out
