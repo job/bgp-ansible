@@ -62,6 +62,12 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       export_filter: up_out
+    agsq1:
+      neighbor_ip: 193.239.118.221
+      remote_as: 3280
+      local_ip: 193.239.118.176
+      local_as: 15562
+      export_filter: up_out
     rinse1:
       neighbor_ip: 136.144.22.4
       remote_as: 208241
@@ -109,6 +115,12 @@ bgp:
     he1:
       neighbor_ip: 2001:7f8:13::a500:6939:1
       remote_as: 6939
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      export_filter: up_out
+    agsq1:
+      neighbor_ip: 2001:7f8:13::a500:3280:1
+      remote_as: 3280
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       export_filter: up_out
