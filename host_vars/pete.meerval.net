@@ -6,6 +6,7 @@ interfaces:
   - virbr0
   - ens1f0
   - ens2f0
+  - ens2f1
   - lo
 statics:
   4:
