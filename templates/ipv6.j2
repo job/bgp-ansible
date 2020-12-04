@@ -64,3 +64,28 @@ int set AS48603_origins;
     print "AS48603_import() protocol ", proto, " prefix not in IRR AS48603: ", net, " path: ", bgp_path;
     reject;
 }
+
+filter AS44854_import
+prefix set AS44854;
+int set AS44854_origins;
+{
+{% if bgp['drain_mode'] %}
+    send_graceful_shutdown();
+{% endif %}
+    include "filters/AS44854.ipv6.conf";
+    include "filters/AS44854.origins.conf";
+    reject_transit_paths();
+    reject_bogon_asns();
+    reject_bogon_prefixes();
+    reject_rpki_invalid();
+    if !(bgp_path.last_nonaggregated ~ AS44854_origins) then {
+        print "AS44854_import() protocol ", proto, " Origin AS ", bgp_path.last_nonaggregated, " not in IRR AS44854: ", net, " path: ", bgp_path;
+        reject;
+    }
+    if (net ~ AS44854) then {
+        bgp_large_community.add((15562,0,1));
+        accept;
+    }
+    print "AS44854_import() protocol ", proto, " prefix not in IRR AS44854: ", net, " path: ", bgp_path;
+    reject;
+}

@@ -44,6 +44,7 @@ bgpq4 -b -f 1 -l AS208241_origins AS208241 > /etc/bird/filters/AS208241.origins.
 
 # Arend
 bgpq4 -b -A -4 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv4.conf;
+bgpq4 -b -A -6 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv6.conf;
 bgpq4 -b -f 1 -l AS44854_origins AS44854 > /etc/bird/filters/AS44854.origins.conf
 
 birdc configure
