@@ -5,8 +5,6 @@ loopback:
 interfaces:
   - lo
   - virbr0
-  - mieli4
-  - mieli6
   - eth0.100
   - arjen1
 statics:
@@ -39,24 +37,12 @@ bgp:
       local_ip: 165.254.255.1
       import_filter: all
       export_filter: all
-    mieli1:
-      neighbor_ip: 192.147.168.246
-      local_ip: 192.147.168.245
-      remote_as: 15562
-      rr_client: yes
-      import_filter: mieli_in
-      export_filter: all
     ircd1:
       neighbor_ip: 165.254.255.32
       local_ip: 165.254.255.1
       remote_as: 15562
       import_filter: ircd_in
       export_filter: ircd_out
-    atr1:
-      neighbor_ip: 165.254.255.23
-      local_ip: 165.254.255.1
-      remote_as: 15562
-      import_filter: atr_in
     ntt1:
       neighbor_ip: 83.231.213.225
       local_ip: 83.231.213.226
@@ -121,13 +107,6 @@ bgp:
       remote_as: 15562
       import_filter: all
       export_filter: all
-    mieli1:
-      neighbor_ip: 2001:728:1808:1::2a
-      local_ip: 2001:728:1808:1::29
-      remote_as: 15562
-      rr_client: yes
-      import_filter: mieli_in
-      export_filter: all
     ircd1:
       neighbor_ip: 2001:728:1808::32
       local_ip: 2001:728:1808::1
@@ -184,11 +163,6 @@ bgp:
       table: collector
       add_path_tx: yes
       rr_client: yes
-    atr1:
-      neighbor_ip: 2001:728:1808::b
-      remote_as: 15562
-      local_ip: 2001:728:1808::1
-      import_filter: atr_in
     arjen1:
       neighbor_ip: 2001:728:1808:1::3d
       local_ip: 2001:728:1808:1::3c

@@ -6,8 +6,6 @@ interfaces:
   - virbr0
   - eth1
   - lo
-  - mieli4
-  - mieli6
   - arjen1
 statics:
   4:
@@ -47,14 +45,6 @@ bgp:
       local_ip: 165.254.255.2
       import_filter: all
       export_filter: all
-    mieli1:
-      neighbor_ip: 192.147.168.242
-      local_ip: 192.147.168.241
-      remote_as: 15562
-      rr_client: yes
-      import_filter: mieli_in
-      export_filter: all
-      extended_messages: yes
     ircd1:
       neighbor_ip: 165.254.255.32
       local_ip: 165.254.255.2
@@ -79,11 +69,6 @@ bgp:
       remote_as: 15562
       export_filter: all
       rr_client: yes
-    atr1:
-      neighbor_ip: 165.254.255.23
-      local_ip: 165.254.255.2
-      remote_as: 15562
-      import_filter: atr_in
     ripe_ris1:
       neighbor_ip: 193.0.4.28
       remote_as: 12654
@@ -134,14 +119,6 @@ bgp:
       remote_as: 15562
       import_filter: all
       export_filter: all
-    mieli1:
-      neighbor_ip: 2001:728:1808:1::26
-      local_ip: 2001:728:1808:1::25
-      remote_as: 15562
-      rr_client: yes
-      import_filter: mieli_in
-      export_filter: all
-      extended_messages: yes
     ircd1:
       neighbor_ip: 2001:728:1808::32
       local_ip: 2001:728:1808::2
@@ -172,11 +149,6 @@ bgp:
       remote_as: 15562
       export_filter: all
       rr_client: yes
-    atr1:
-      neighbor_ip: 2001:728:1808::b
-      remote_as: 15562
-      local_ip: 2001:728:1808::2
-      import_filter: atr_in
     ripe_ris1:
       neighbor_ip: 2001:67c:2e8:2:ffff:0:4:28
       remote_as: 12654

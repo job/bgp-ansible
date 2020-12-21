@@ -1,13 +1,3 @@
-filter atr_in
-{
-    scrub_communities(trusted);
-    if net = 2607:fae0:245::/48 then {
-        bgp_large_community.add((15562,0,1));
-        accept;
-    }
-    reject;
-}
-
 filter mieli_in
 {
     if net ~ [ 2001:67c:208c:10::/64, 2001:728:1808:1::20/126 ] then {
@@ -49,6 +39,7 @@ int set AS48603_origins;
 {% endif %}
     include "filters/AS48603.ipv6.conf";
     include "filters/AS48603.origins.conf";
+    reject_long_aspaths();
     reject_transit_paths();
     reject_bogon_asns();
     reject_bogon_prefixes();
@@ -74,6 +65,7 @@ int set AS44854_origins;
 {% endif %}
     include "filters/AS44854.ipv6.conf";
     include "filters/AS44854.origins.conf";
+    reject_long_aspaths();
     reject_transit_paths();
     reject_bogon_asns();
     reject_bogon_prefixes();

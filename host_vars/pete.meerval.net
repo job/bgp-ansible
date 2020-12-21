@@ -44,11 +44,6 @@ bgp:
       allow_as_in: 2
       import_filter: ntt_in
       export_filter: ntt_out
-    atr1:
-      neighbor_ip: 165.254.255.66
-      local_ip: 165.254.255.65
-      remote_as: 15562
-      import_filter: atr_in
     ntt_test1:
       neighbor_ip: 129.250.121.110
       local_ip: 165.254.255.65
@@ -82,8 +77,3 @@ bgp:
       allow_as_in: 1
       import_filter: ntt_in
       export_filter: ntt_out
-    atr1:
-      neighbor_ip: 2001:728:1808:5::2
-      remote_as: 15562
-      local_ip: 2001:728:1808:5::1
-      import_filter: atr_in

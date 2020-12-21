@@ -1,3 +1,11 @@
+function reject_long_aspaths()
+{
+    if (bgp_path.len > 100) then {
+            print "reject_long_aspath(): ", net, " path: ", bgp_path;
+            reject;
+    }
+}
+
 function reject_bogon_asns()
 int set bogon_asns;
 {
@@ -69,6 +77,7 @@ function send_graceful_shutdown()
 
 filter ntt_in
 {
+    reject_long_aspaths();
     reject_bogon_prefixes();
     scrub_communities(untrusted);
 {% if afi == 4 %}

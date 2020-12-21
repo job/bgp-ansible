@@ -29,11 +29,6 @@ bgp:
       remote_as: 8283
       allow_as_in: 2
       export_filter: coloclue_out
-    atr1:
-      neighbor_ip: 94.142.242.237
-      local_ip: 94.142.242.236
-      remote_as: 15562
-      import_filter: atr_in
   ipv6:
     coloclue1:
       neighbor_ip: 2a02:898:0:20::e1
@@ -47,8 +42,3 @@ bgp:
       remote_as: 8283
       allow_as_in: 2
       export_filter: coloclue_out
-    atr1:
-      neighbor_ip: 2a02:898:52:fffd::b
-      local_ip: 2a02:898:52:fffd::a
-      remote_as: 15562
-      import_filter: atr_in
