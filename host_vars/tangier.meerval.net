@@ -192,3 +192,9 @@ bgp:
       remote_as: 44854
       import_filter: AS44854_import
       export_filter: all
+    br1:
+      neighbor_ip: 2001:728:1808:1::41
+      local_ip: 2001:728:1808:1::40
+      remote_as: 212121
+      import_filter: AS212121_import
+      export_filter: all
