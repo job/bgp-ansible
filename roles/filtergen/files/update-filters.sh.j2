@@ -4,56 +4,57 @@ set -ev
 
 export PATH="${PATH}:/usr/local/bin"
 
-bgpq4 -b -A -6 AS-KING -l AS31451 > /etc/bird/filters/AS31451.ipv6.conf;
+# thking
+bgpq4 -b -A -6 AS-KING -l AS31451 > /etc/bird/filters/AS31451.ipv6.conf
 bgpq4 -b -f 1 -l AS31451_origins AS-KING > /etc/bird/filters/AS31451.origins.conf
 
 # louis
-bgpq4 -b -A -6 AS205956 -l AS205956 > /etc/bird/filters/AS205956.ipv6.conf;
+bgpq4 -b -A -6 AS205956 -l AS205956 > /etc/bird/filters/AS205956.ipv6.conf
 bgpq4 -b -f 1 -l AS205956_origins AS205956 > /etc/bird/filters/AS205956.origins.conf
 
 # marlinc
-bgpq4 -b -A -6 AS60927:AS-MARLINC -l AS60927 > /etc/bird/filters/AS60927.ipv6.conf;
+bgpq4 -b -A -6 AS60927:AS-MARLINC -l AS60927 > /etc/bird/filters/AS60927.ipv6.conf
 bgpq4 -b -f 1 -l AS60927_origins AS60927:AS-MARLINC > /etc/bird/filters/AS60927.origins.conf
 
 # cynthia
-bgpq4 -b -A -4 AS57782:AS-CMR -l AS57782 > /etc/bird/filters/AS57782.ipv4.conf;
-bgpq4 -b -A -6 AS57782:AS-CMR -l AS57782 > /etc/bird/filters/AS57782.ipv6.conf;
+bgpq4 -b -A -4 AS57782:AS-CMR -l AS57782 > /etc/bird/filters/AS57782.ipv4.conf
+bgpq4 -b -A -6 AS57782:AS-CMR -l AS57782 > /etc/bird/filters/AS57782.ipv6.conf
 bgpq4 -b -f 1 -l AS57782_origins AS57782:AS-CMR > /etc/bird/filters/AS57782.origins.conf
 
-bgpq4 -b -A -4 AS12654 -l AS12654 > /etc/bird/filters/AS12654.ipv4.conf;
-bgpq4 -b -A -6 AS12654 -l AS12654 > /etc/bird/filters/AS12654.ipv6.conf;
+bgpq4 -b -A -4 AS12654 -l AS12654 > /etc/bird/filters/AS12654.ipv4.conf
+bgpq4 -b -A -6 AS12654 -l AS12654 > /etc/bird/filters/AS12654.ipv6.conf
 bgpq4 -b -f 1 -l AS12654_origins AS12654 > /etc/bird/filters/AS12654.origins.conf
 
-bgpq4 -b -A -4 AS43997 -l AS43997 > /etc/bird/filters/AS43997.ipv4.conf;
-bgpq4 -b -A -6 AS43997 -l AS43997 > /etc/bird/filters/AS43997.ipv6.conf;
+bgpq4 -b -A -4 AS43997 -l AS43997 > /etc/bird/filters/AS43997.ipv4.conf
+bgpq4 -b -A -6 AS43997 -l AS43997 > /etc/bird/filters/AS43997.ipv6.conf
 bgpq4 -b -f 1 -l AS43997_origins AS43997 > /etc/bird/filters/AS43997.origins.conf
 
 # arjen zonneveld
-bgpq4 -b -A -4 AS48603 -l AS48603 > /etc/bird/filters/AS48603.ipv4.conf;
-bgpq4 -b -A -6 AS48603 -l AS48603 > /etc/bird/filters/AS48603.ipv6.conf;
+bgpq4 -b -A -4 AS48603 -l AS48603 > /etc/bird/filters/AS48603.ipv4.conf
+bgpq4 -b -A -6 AS48603 -l AS48603 > /etc/bird/filters/AS48603.ipv6.conf
 bgpq4 -b -f 1 -l AS48603_origins AS48603 > /etc/bird/filters/AS48603.origins.conf
 
 # jared
-bgpq4 -b -A -4 AS-NETHER -l AS267 > /etc/bird/filters/AS267.ipv4.conf;
-bgpq4 -b -A -6 AS-NETHER -l AS267 > /etc/bird/filters/AS267.ipv6.conf;
+bgpq4 -b -A -4 AS-NETHER -l AS267 > /etc/bird/filters/AS267.ipv4.conf
+bgpq4 -b -A -6 AS-NETHER -l AS267 > /etc/bird/filters/AS267.ipv6.conf
 bgpq4 -b -f 1 -l AS267_origins AS-NETHER > /etc/bird/filters/AS267.origins.conf
 
 # Rinse
-bgpq4 -b -A -4 AS208241 -l AS208241 > /etc/bird/filters/AS208241.ipv4.conf;
+bgpq4 -b -A -4 AS208241 -l AS208241 > /etc/bird/filters/AS208241.ipv4.conf
 bgpq4 -b -f 1 -l AS208241_origins AS208241 > /etc/bird/filters/AS208241.origins.conf
 
 # Arend
-bgpq4 -b -A -4 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv4.conf;
-bgpq4 -b -A -6 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv6.conf;
+bgpq4 -b -A -4 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv4.conf
+bgpq4 -b -A -6 AS44854 -l AS44854 > /etc/bird/filters/AS44854.ipv6.conf
 bgpq4 -b -f 1 -l AS44854_origins AS44854 > /etc/bird/filters/AS44854.origins.conf
 
 # BR
-bgpq4 -b -A -6 AS212121 -l AS212121 > /etc/bird/filters/AS212121.ipv6.conf;
+bgpq4 -b -A -6 AS212121 -l AS212121 > /etc/bird/filters/AS212121.ipv6.conf
 bgpq4 -b -f 1 -l AS212121_origins AS212121 > /etc/bird/filters/AS212121.origins.conf
 
 # KPN
-bgpq4 -b -A -4 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv4.conf;
-bgpq4 -b -A -6 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv6.conf;
+bgpq4 -b -A -4 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv4.conf
+bgpq4 -b -A -6 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv6.conf
 bgpq4 -b -f 1 -l AS1136_origins AS1136 > /etc/bird/filters/AS1136.origins.conf
 
 birdc configure
