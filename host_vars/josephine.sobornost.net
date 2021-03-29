@@ -82,6 +82,7 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       password: true
+      import_filter: AS1136_import
       export_filter: up_out
     kpnrotterdam1:
       neighbor_ip: 193.239.117.67
@@ -89,6 +90,7 @@ bgp:
       local_ip: 193.239.118.176
       local_as: 15562
       password: true
+      import_filter: AS1136_import
       export_filter: up_out
   ipv6:
     xs4all1:
@@ -145,6 +147,7 @@ bgp:
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       password: true
+      import_filter: AS1136_import
       export_filter: up_out
     kpnrotterdam1:
       neighbor_ip: 2001:7f8:13::a500:1136:2
@@ -152,4 +155,5 @@ bgp:
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
       password: true
+      import_filter: AS1136_import
       export_filter: up_out
