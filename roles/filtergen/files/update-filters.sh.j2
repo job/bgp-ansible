@@ -57,5 +57,10 @@ bgpq4 -b -A -4 -l AS1136 AS-KPNNL > /etc/bird/filters/AS1136.ipv4.conf
 bgpq4 -b -A -6 -l AS1136 AS-KPNNL > /etc/bird/filters/AS1136.ipv6.conf
 bgpq4 -b -f 1 -l AS1136_origins AS-KPNNL > /etc/bird/filters/AS1136.origins.conf
 
+# Apple
+bgpq4 -b -A -4 -l AS714 AS-APPLE > /etc/bird/filters/AS714.ipv4.conf
+bgpq4 -b -A -6 -l AS714 AS-APPLE > /etc/bird/filters/AS714.ipv6.conf
+bgpq4 -b -f 1 -l AS714_origins AS-APPLE > /etc/bird/filters/AS714.origins.conf
+
 birdc configure
 birdc6 configure

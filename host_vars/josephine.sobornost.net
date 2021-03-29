@@ -92,6 +92,20 @@ bgp:
       password: true
       import_filter: AS1136_import
       export_filter: up_out
+    apple1:
+      neighbor_ip:  193.239.117.112
+      remote_as: 714
+      local_ip: 193.239.118.176
+      local_as: 15562
+      import_filter: AS714_import
+      export_filter: up_out
+    apple2:
+      neighbor_ip:  193.239.117.113
+      remote_as: 714
+      local_ip: 193.239.118.176
+      local_as: 15562
+      import_filter: AS714_import
+      export_filter: up_out
   ipv6:
     xs4all1:
       neighbor_ip: 2001:888:1:801b::1
@@ -156,4 +170,18 @@ bgp:
       local_as: 15562
       password: true
       import_filter: AS1136_import
+      export_filter: up_out
+    apple1:
+      neighbor_ip: 2001:7f8:13::a500:714:1
+      remote_as: 714
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      import_filter: AS714_import
+      export_filter: up_out
+    apple2:
+      neighbor_ip: 2001:7f8:13::a500:714:2
+      remote_as: 714
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      import_filter: AS714_import
       export_filter: up_out

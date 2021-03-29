@@ -132,3 +132,28 @@ int set AS1136_origins;
     print "AS1136_import() protocol ", proto, " prefix not in IRR AS1136: ", net, " path: ", bgp_path;
     reject;
 }
+
+filter AS714_import
+prefix set AS714;
+int set AS714_origins;
+{
+{% if bgp['drain_mode'] %}
+    send_graceful_shutdown();
+{% endif %}
+    include "filters/AS714.ipv4.conf";
+    include "filters/AS714.origins.conf";
+    reject_long_aspaths();
+    reject_transit_paths();
+    reject_bogon_asns();
+    reject_bogon_prefixes();
+    reject_rpki_invalid();
+    if !(bgp_path.last ~ AS714_origins) then {
+        print "AS714_import() protocol ", proto, " Origin AS ", bgp_path.last, " not in IRR AS714: ", net, " path: ", bgp_path;
+        reject;
+    }
+    if (net ~ AS714) then {
+        accept;
+    }
+    print "AS714_import() protocol ", proto, " prefix not in IRR AS714: ", net, " path: ", bgp_path;
+    reject;
+}
