@@ -24,6 +24,9 @@ protocol bgp {{ neighbor }} {
 {% if p.allow_as_in is defined %}
     allow local as {{ p.allow_as_in }};
 {% endif %}
+{% if p.password is defined %}
+    include "/etc/bird/AS{{ p.remote_as }}.md5.password";
+{% endif %}
     import keep filtered;
 {% if p.import_filter is not defined %}
     import none;

@@ -1,3 +1,4 @@
+ansible_python_interpreter: /usr/bin/python3
 router_id: '192.147.168.200'
 loopback:
   4: '45.138.228.0'
@@ -75,6 +76,20 @@ bgp:
       local_as: 15562
       import_filter: AS208241_import
       export_filter: all
+    kpnamsterdam1:
+      neighbor_ip: 193.239.117.66
+      remote_as: 1136
+      local_ip: 193.239.118.176
+      local_as: 15562
+      password: true
+      export_filter: up_out
+    kpnrotterdam1:
+      neighbor_ip: 193.239.117.67
+      remote_as: 1136
+      local_ip: 193.239.118.176
+      local_as: 15562
+      password: true
+      export_filter: up_out
   ipv6:
     xs4all1:
       neighbor_ip: 2001:888:1:801b::1
@@ -123,4 +138,18 @@ bgp:
       remote_as: 3280
       local_ip: 2001:7f8:13::a501:5562:1
       local_as: 15562
+      export_filter: up_out
+    kpnamsterdam1:
+      neighbor_ip: 2001:7f8:13::a500:1136:1
+      remote_as: 1136
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      password: true
+      export_filter: up_out
+    kpnrotterdam1:
+      neighbor_ip: 2001:7f8:13::a500:1136:2
+      remote_as: 1136
+      local_ip: 2001:7f8:13::a501:5562:1
+      local_as: 15562
+      password: true
       export_filter: up_out

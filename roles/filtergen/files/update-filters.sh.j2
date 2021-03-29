@@ -53,9 +53,9 @@ bgpq4 -b -A -6 AS212121 -l AS212121 > /etc/bird/filters/AS212121.ipv6.conf
 bgpq4 -b -f 1 -l AS212121_origins AS212121 > /etc/bird/filters/AS212121.origins.conf
 
 # KPN
-bgpq4 -b -A -4 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv4.conf
-bgpq4 -b -A -6 AS1136 -l AS1136 > /etc/bird/filters/AS1136.ipv6.conf
-bgpq4 -b -f 1 -l AS1136_origins AS1136 > /etc/bird/filters/AS1136.origins.conf
+bgpq4 -b -A -4 AS1136 -l AS-KPNNL > /etc/bird/filters/AS1136.ipv4.conf
+bgpq4 -b -A -6 AS1136 -l AS-KPNNL > /etc/bird/filters/AS1136.ipv6.conf
+bgpq4 -b -f 1 -l AS1136_origins AS-KPNNL > /etc/bird/filters/AS1136.origins.conf
 
 birdc configure
 birdc6 configure
