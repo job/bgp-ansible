@@ -2,7 +2,7 @@
 
 set -ev
 
-export PATH="${PATH}:/usr/local/bin"
+export PATH="/usr/sbin:/usr/local/bin"
 
 # thking
 bgpq4 -b -A -6 AS-KING -l AS31451 > /etc/bird/filters/AS31451.ipv6.conf
